@@ -1,0 +1,36 @@
+---
+title: "Intro"
+author: "Innovation Team"
+date: "9/24/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Intro
+
+`mlr3` has, as any other ML package, a syntax (dialect) of its own. Due to the usage of object-programming with `R6` it is useful to understand the dialect in order to create full-throttle workflows. In order words, to exploit all the potential of `data.table` blazing fast speed and `mlr3` absolute flexibility it is necessary to pass through a steep but highly rewarding learning curve.
+
+## Basics
+
+There are two approaches when it comes to data preparation  
+- Data *must* be **ready** or cleaned when integrating to the ML pipeline.  
+- Data cleaning *may* be part of the ML pipeline.  
+
+The `mlr3` package provides a framework in which the philosophy is that for certain jobs and algorithms data cleaning is an integral part of the process and therefore it provides tools to deal with it **within** the pipeline.
+
+## mlr3 lingo 
+
+- `task`: it contains the **data** and the **target** variable/s.  
+- `learner`: it is the Machine Learning **algorithm** to be trained and applied.  
+- `measures`: performance metrics to evaluate models (a model intended as an algorithm applied to a data set to a given target).  
+- `resampling`: the **data** sorting and **splitting** process. 
+
+## Framework Philosophy
+
+If we define the `tidyverse`'s building blocks are the **verbs**, for example `dplyr`'s  `mutate()`; `mlr3` builds upon **objects** (the one defined before). The biggest difference is that while in the `tidy` framework the focus is on *actions* (functions, verbs) and **data** is separated or independent from it's **transformation**; in the later there is a single-combined focus. In other words, **data** and its **transformation** is contained in the same object. 
+
+At first it may be confusing because most `R` programmers are used to work with `data.frame`s and `functions` (yeah, of course, because it is a function oriented language) but this *alternative* approach uses an **API** way of programming that is easier to scale up and put into production, still extremely useful for minor jobs when benchmarking is crucial or *exploration* of suitable algorithms/pipelines for example.  
+
